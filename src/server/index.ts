@@ -1,6 +1,8 @@
 import path from "path";
+import dotenv from "dotenv";
 import express from "express";
 import { sum } from "../core/math";
+dotenv.config();
 
 const app = express();
 
@@ -13,7 +15,7 @@ app.get("/ping", function (req, res) {
   });
 });
 
-const port = 3001;
+const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log('');
   console.log('--------------');
